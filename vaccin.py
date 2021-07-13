@@ -52,7 +52,7 @@ for barcode in barcodes:
 
     # Pad the different part of the JWT token
     def padded_base64(data):
-        return data + "=" * divmod(len(payload),4)[1]
+        return data + "=" * (4 - divmod(len(payload),4)[1])
 
     header = padded_base64(header)
     payload = padded_base64(payload)
